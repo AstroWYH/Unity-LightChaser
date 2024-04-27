@@ -20,7 +20,7 @@ public class AudioSetting : AssetPostprocessor
             setting.loadType = AudioClipLoadType.Streaming;
         else
             setting.loadType = AudioClipLoadType.DecompressOnLoad;
-        audioImporter.preloadAudioData = false;
+        //audioImporter.preloadAudioData = false;
         audioImporter.defaultSampleSettings = setting;
     }
 }
