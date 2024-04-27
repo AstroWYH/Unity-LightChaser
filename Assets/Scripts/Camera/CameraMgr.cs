@@ -17,14 +17,21 @@ public class CameraMgr : MonoDestroySingleTon<CameraMgr>,ITaskInit
     public async void Init(Action callback)
     {
         _brainCamera = gameObject.AddOrGet<CinemachineBrain>();
-        UpdateCurVirtualCamera();
+        //UpdateCurVirtualCamera();
         await Task.Delay(TimeSpan.FromSeconds(1f));
+        UpdateCurVirtualCamera();
         var playerTf = GameObject.FindGameObjectWithTag(Tags.Player).transform;
         SetCurVirtualCameraTarget(playerTf);
         StopAllShake();
         await Task.Delay(TimeSpan.FromSeconds(1f));
         callback?.Invoke();
     }
+    
+    void Update()
+    {
+        //var test = _brainCamera.ActiveVirtualCamera;
+    }
+
     //更新当前虚拟相机
     public void UpdateCurVirtualCamera()
     {
